@@ -7,17 +7,7 @@ const EditEmployee = () => {
   const navigate = useNavigate()
   const { editEmployee, getEmployeeByID } = context
   const { EmployeeID } = useParams()
-  const [credentials, setCredentials] = useState({
-  // designation:"",
-  // MCA:false,
-  // BCA:false,
-  // MSC:false,
-  // radio:'',
-  // name: "",
-  // email: "",
-  // number: "",
-  // img: ""
-  });
+  const [credentials, setCredentials] = useState({});
 
 
   const onchange = (e) => {
@@ -155,7 +145,7 @@ const EditEmployee = () => {
               value={'BCA'}
               name="BCA"
               checked={credentials.course === 'BCA'}
-              onChange={onchange}
+              onChange={(e)=>{setCredentials({...credentials, course:e.target.value})}}
             />
             <label className="form-check-label mx-1" htmlFor="exampleCheck1">
               BCA
@@ -169,7 +159,7 @@ const EditEmployee = () => {
               value={'MCA'}
               name="MCA"
               checked={credentials.course === 'MCA'}
-              onChange={onchange}
+              onChange={(e)=>{setCredentials({...credentials, course:e.target.value})}}
             />
             <label className="form-check-label mx-1" htmlFor="exampleCheck2">
               MCA
@@ -183,7 +173,7 @@ const EditEmployee = () => {
               value={'MSC'}
               name="MSC"
               checked={credentials.course === 'MSC'}
-              onChange={onchange}
+              onChange={(e)=>{setCredentials({...credentials, course:e.target.value})}}
             />
             <label className="form-check-label mx-1" htmlFor="exampleCheck3">
               MSC

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require('jsonwebtoken')
+const fuzzy = require('fuzzy')
 
 const verifyAdmin = require('../middlewere/verifyAdmin');
 const { body, validationResult } = require("express-validator");
@@ -118,5 +119,44 @@ router.put("/update/:id", verifyAdmin, async (req, res)=>{
         
     }
 })
+
+
+router.get('/search', verifyAdmin, async (req, res) => {
+    const { name, designation } = req.query;
+    try {
+        const items = await Employee.find({});
+        
+        let results = items;
+        
+        if (name) {
+        //   cosnole.log("\n\n\n\n")
+        const nameOptions = {
+          extract: el => el.name || '',
+        };
+        results = fuzzy.filter(name, results, nameOptions).map(el => el.original);
+        // console.log(results)
+      }
+  
+      if (designation) {
+        const designationOptions = {
+          extract: el => el.designation || '',
+        };
+        results = fuzzy.filter(designation, results, designationOptions).map(el => el.original);
+        // console.log(results1)
+      }
+  
+    //   if (business_organization) {
+    //     const business_organizationOptions = {
+    //       extract: el => el.business_organization || '',
+    //     };
+    //     results = fuzzy.filter(business_organization, results, business_organizationOptions).map(el => el.original);
+    //     // console.log(results2)
+    //   }
+
+      res.status(201).json(results);
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  });
 
 module.exports = router

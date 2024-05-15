@@ -30,7 +30,7 @@ const employeeSchema = new mongoose.Schema({
     course:{
         type:String,
         require:true,
-        enum:["BCA", "MCA", "BSC",""]
+        enum:["BCA", "MCA", "MSC",""]
     },
     img:{
         type:String

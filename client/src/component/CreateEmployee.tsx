@@ -40,9 +40,10 @@ const CreateEmployee = () => {
     createEmployee(credentials).then(res=>{
       if (res.success) {
         alert("Successfully Employee Generate")
+        navigate("/employelist")
       }else alert(res.result)
     }).catch(rej=>{console.log(rej)})
-    navigate("/")
+    // navigate("/employeelist")
   }
 
 
@@ -104,7 +105,8 @@ const CreateEmployee = () => {
           className="form-control" 
           id="selector" 
           defaultValue={"choose"} 
-          value={credentials.designation} 
+          value={credentials.designation?credentials.designation:'choose'} 
+
           onChange={(e)=>{setCredentials({...credentials, designation:e.target.value})}}
           >
             <option value="choose" disabled>Choose here</option>
@@ -156,7 +158,7 @@ const CreateEmployee = () => {
               value={'BCA'}
               name="BCA"
               checked={credentials.course === 'BCA'}
-              onChange={onchange}
+              onChange={(e)=>{setCredentials({...credentials, course:e.target.value})}}
             />
             <label className="form-check-label mx-1" htmlFor="exampleCheck1">
               BCA
@@ -170,7 +172,7 @@ const CreateEmployee = () => {
               value={'MCA'}
               name="MCA"
               checked={credentials.course === 'MCA'}
-              onChange={onchange}
+              onChange={(e)=>{setCredentials({...credentials, course:e.target.value})}}
             />
             <label className="form-check-label mx-1" htmlFor="exampleCheck2">
               MCA
@@ -184,7 +186,7 @@ const CreateEmployee = () => {
               value={'MSC'}
               name="MSC"
               checked={credentials.course === 'MSC'}
-              onChange={onchange}
+              onChange={(e)=>{setCredentials({...credentials, course:e.target.value})}}
             />
             <label className="form-check-label mx-1" htmlFor="exampleCheck3">
               MSC

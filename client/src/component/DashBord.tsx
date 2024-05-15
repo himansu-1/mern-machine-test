@@ -17,7 +17,10 @@ const DashBord = () => {
     }, [location.pathname === ""])
     return (
         <>
-        DashBord
+        <p className='dashBoard-admin'>
+        Welcome Admin Penal
+
+        </p>
         </>
     )
 }

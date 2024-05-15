@@ -18,7 +18,8 @@ const EmployeeState = (props) =>{
             })
             const result = await response.json()
             setEmployee(result.employee)
-            console.log({result})
+            return result.employee
+            // console.log(result.employee)
             
         } catch (error) {
             console.log(error)
@@ -153,7 +154,7 @@ const EmployeeState = (props) =>{
 
     return (
         <EmployeeContext.Provider
-        value={{getEmployee, createEmployee, deleteEmployee, login, getAdmin, setAdmin, editEmployee, getEmployeeByID, admin, Employee}}
+        value={{getEmployee, createEmployee, deleteEmployee, login, getAdmin, setAdmin, editEmployee, getEmployeeByID, admin, Employee, setEmployee}}
         >
             {props.children}
         </EmployeeContext.Provider>

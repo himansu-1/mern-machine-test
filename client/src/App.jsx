@@ -1,6 +1,5 @@
 
 import { Route, Routes } from 'react-router-dom'
-import './App.css'
 import CreateEmployee from './component/CreateEmployee'
 import DashBord from './component/DashBord'
 import EmployeeList from './component/EmployeeList'

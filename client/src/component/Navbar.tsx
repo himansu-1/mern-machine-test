@@ -53,27 +53,27 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item px-2">
-                <Link className="nav-link active" aria-current="page" to={"/"} >
+                <Link className={location.pathname==='/'?`nav-link active`:`nav-link`}  aria-current="page" to={"/"} >
                   Home
                 </Link>
               </li>
               <li className="nav-item px-2">
-                <Link className="nav-link active" aria-current="page" to={"/employelist"} >
+                <Link className={location.pathname==='/employelist'?`nav-link active`:`nav-link`}  aria-current="page" to={"/employelist"} >
                   Employee List
                 </Link>
               </li>
-              <li className="nav-item px-2">
+              {/* <li className="nav-item px-2">
                 <Link className="nav-link active" aria-current="page" to={"/createemployee"} >
                   Create Employee
                 </Link>
-              </li>
+              </li> */}
             </ul>
             {/* <form className="d-flex" role="search"> */}
               {
                 Cookies.get('auth-token') ?
                 <>
                   <span className="nav-item px-5">
-                    <Link className="nav-link active" aria-current="page" to={"/employelist"} >
+                    <Link className="nav-link " aria-current="page" to={"/employelist"} >
                       {admin.name}
                     </Link>
                   </span>

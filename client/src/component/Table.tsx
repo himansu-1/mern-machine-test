@@ -8,7 +8,7 @@ const Table = (props) => {
   const context = useContext(EmployeeContext)
   const { deleteEmployee } = context
 
-  const { key, img, name, sl, email, mobile, designation, gender, course, date, id } = props;
+  const { key, img, name, sl, email, mobile, designation, gender, course, date, id, setEmployeChange, employeChange } = props;
 
   const [showLogout, setShowLogout] = useState(false);
 
@@ -23,12 +23,13 @@ const Table = (props) => {
       }else alert("Something went Wrong")
     })
     handleCloseModal()
+    setEmployeChange(!employeChange)
   }
   return (
     <>
       <tr>
         <th scope="row">{sl+1}</th>
-        <td><img src={img} className="rounded " style={{width:"50px", height:"50px"}} alt={''}/></td>
+        <td><img src={img?img:`https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg`} className="rounded " style={{width:"50px", height:"50px"}} alt={''}/></td>
         <td>{name}</td>
         <td>{email}</td>
         <td>{mobile}</td>

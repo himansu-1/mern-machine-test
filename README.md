@@ -85,10 +85,6 @@ The application will be accessible at `http://localhost:3000`.
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-## License
-
-This project is licensed under the MIT License.
-
 ---
 
 **Test/MERN Stack Machine Test provided by 'HR_BLR- DealsDray'**

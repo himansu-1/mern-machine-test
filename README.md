@@ -53,4 +53,44 @@ This project is a MERN stack web application developed as an Employee Management
     ```
 
 3. **Environment variables**:
-    Create a `.env` file in the `backend` directory with the following 
+    Create a `.env` file in the `backend` directory with the following variables:
+    ```env
+    PORT=5000
+    MONGODB_URI=your_mongodb_connection_string
+    JWT_SECRET=your_jwt_secret
+    ```
+
+4. **Run the application**:
+    ```sh
+    # Start backend server
+    cd backend
+    npm start
+
+    # Start frontend development server
+    cd ../frontend
+    npm start
+    ```
+
+The application will be accessible at `http://localhost:3000`.
+
+## Usage
+
+1. **Login**: Access the login page and enter admin credentials to log in.
+2. **Dashboard**: Once logged in, the admin can view, add, edit, and delete employees from the dashboard.
+3. **Add Employee**: Navigate to the 'Add Employee' section, fill out the form, and submit to create a new employee.
+4. **Edit/Delete Employee**: Use the action buttons on the employee list to edit or delete an employee.
+5. **Search Employees**: Use the search bar to filter employees by name, designation, or course.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+**Test/MERN Stack Machine Test provided by 'HR_BLR- DealsDray'**
+
+For more information or any queries, please contact the repository owner.
